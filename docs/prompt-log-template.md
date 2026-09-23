@@ -41,3 +41,13 @@
 - ผลลัพธ์: สร้าง `tasks.md` ซึ่งแยกงานเป็น 15 tasks ครอบคลุม AC และ Constraints ตาม spec v2
 - Open Questions ที่ยังรอ: Q-02 (รูปแบบหมายเลขคิว) — ส่งผลให้ T-12 และ T-13 รอสถานะ
 
+---
+
+## 2569-09-23 10:30 คำสั่ง: /implement T-01
+
+- เครื่องมือ: GitHub Copilot (ใน Codespaces)
+- ไฟล์ที่สร้าง/แก้: backend/app/db/models.py, backend/app/db/migrations/001_init.py, backend/tests/test_migration_create_tables.py, specs/001-booking/tasks.md
+- ผลการรัน test: `pytest` ในโฟลเดอร์ `backend` ผ่าน 1 test (migration สร้างตาราง `slots`, `bookings`, `audit_logs`)
+- สิ่งที่เกือบต้องเดาแต่ถามแทน: ไม่มี — งานอิง spec/plan ชัดเจน
+
+

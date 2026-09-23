@@ -12,6 +12,7 @@ Spec ID: SPEC-BKG-001
 - ต้องทำหลัง: ไม่มี
 - เสร็จเมื่อ: ฟังก์ชัน migration `upgrade(engine)` สร้างตาราง `slots`, `bookings`, `audit_logs` ได้สำเร็จ
 - สถานะ: พร้อมทำ
+- สถานะ: เสร็จ รอทีมตรวจ
 
 ### T-02 พัฒนา GET /slots และการคำนวณช่วงว่าง
 - รองรับ: FR-BKG-01, FR-BKG-06, NFR-PERF-01
