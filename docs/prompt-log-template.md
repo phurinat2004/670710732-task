@@ -31,3 +31,13 @@
 - ผลลัพธ์: specs/001-xxx/plan.md
 - Constraint ที่ AI ยังไม่ได้ใช้:
 - สิ่งที่ AI บอกว่าอยากเดาแต่ไม่ได้เดา:
+
+---
+
+## 2569-09-23 10:00 คำสั่ง: /tasks (สร้าง tasks.md)
+
+- เครื่องมือ: GitHub Copilot (ใน Codespaces)
+- ไฟล์: specs/001-booking/tasks.md
+- ผลลัพธ์: สร้าง `tasks.md` ซึ่งแยกงานเป็น 15 tasks ครอบคลุม AC และ Constraints ตาม spec v2
+- Open Questions ที่ยังรอ: Q-02 (รูปแบบหมายเลขคิว) — ส่งผลให้ T-12 และ T-13 รอสถานะ
+
