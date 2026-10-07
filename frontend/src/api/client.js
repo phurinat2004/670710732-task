@@ -3,6 +3,8 @@
 // เรียกผ่าน /api (ดู proxy ใน vite.config.js) หลังบ้านต้องรันอยู่ที่ port 8000
 const BASE = import.meta.env.VITE_API_BASE ?? '/api'
 
+export const formatSlotRemaining = (slot) => `${Number(slot?.remaining ?? slot?.available ?? 0)} ที่`
+
 export const api = {
   async getSlots({ dateFrom, packageCode }) {
     const q = new URLSearchParams({ date_from: dateFrom, package_code: packageCode })
