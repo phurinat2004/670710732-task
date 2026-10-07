@@ -70,3 +70,14 @@
   - สาเหตุ: [backend/app/booking/service.py](backend/app/booking/service.py#L21-L36) ตรวจว่า `slot.remaining < 0` แทนที่จะป้องกัน `slot.remaining <= 0`
   - ผล: การจองเมื่อ slot.remaining = 0 ยังได้ status 201 แทนที่จะต้อง 409 ตาม AC-BKG-01 และ FR-BKG-03
 - ข้อสรุป: หยุดที่จุดนี้ตามข้อบังคับของ prompt ว่าเมื่อ test ใหม่ไม่ผ่านเพราะโค้ดผิด ต้องระบุว่าเป็นกรณีโค้ดทำไม่ตรง AC แล้วหยุด
+
+---
+
+## 2026-10-07 08:35 คำสั่ง: /verify specs/001-booking/
+
+- โหมด: ตรวจ requirement / RTM
+- ผล test: `cd backend && pytest -v` -> 6 ผ่าน 1 ไม่ผ่าน; `cd frontend && npm test -- --run` -> 1 ผ่าน 0 ไม่ผ่าน
+- กรณีที่ไม่ผ่าน: โค้ดทำไม่ตรง AC (เจอบั๊ก) จาก [backend/app/booking/service.py](backend/app/booking/service.py#L21-L36) ให้จองได้ที่ `remaining == 0`
+- ข้อค้นพบใหม่: F-001 ถึง F-004
+- RTM ที่สร้าง: [specs/001-booking/rtm.md](specs/001-booking/rtm.md)
+- สรุป: สถานะตามรอยไปข้างหน้า: ครบ 4 รายการ, ยังไม่ถึง 8 รายการ, ช่องโหว่ 4 รายการ, รอ Q-xx 0 รายการ
