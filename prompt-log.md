@@ -53,3 +53,20 @@
 - TC ID ที่เสนอ: TC-BKG-01-1, TC-BKG-01-2, TC-BKG-01-3
 - ผล: หยุดที่ชั้นเสนอ test case ร่าง ไม่เขียนโค้ด test ตามคำสั่งของ prompt เพราะยังไม่มีแถว "ใช้ได้" สำหรับ AC นี้
 - หมายเหตุ: spec บอกให้มีหมายเลขคิวตาม Q-02 ยังไม่มีคำตอบ จึงติด (รอ Q-xx) ใน Then ของทุกแถว
+
+---
+
+## 2026-10-07 00.45 คำสั่ง: /testcases AC-BKG-01 specs/001-booking/
+
+- โหมด: เขียน test (มีแถวสถานะ "ใช้ได้" ใน test-cases.md แล้ว)
+- TC ID ที่เขียน test: TC-BKG-01-1, TC-BKG-01-2, TC-BKG-01-3
+- ไฟล์ที่แก้: backend/tests/test_AC_BKG_01.py
+- ผลการรัน: `cd backend && pytest -v tests/test_AC_BKG_01.py`
+  - test_AC_BKG_01: ผ่าน
+  - test_TC_BKG_01_1_successful_booking: ผ่าน
+  - test_TC_BKG_01_2_last_seat_booking: ผ่าน
+  - test_TC_BKG_01_3_rejects_unverified_or_full_slot: ไม่ผ่าน
+- กรณีที่ไม่ผ่าน: โค้ดทำไม่ตรง AC (เจอบั๊ก)
+  - สาเหตุ: [backend/app/booking/service.py](backend/app/booking/service.py#L21-L36) ตรวจว่า `slot.remaining < 0` แทนที่จะป้องกัน `slot.remaining <= 0`
+  - ผล: การจองเมื่อ slot.remaining = 0 ยังได้ status 201 แทนที่จะต้อง 409 ตาม AC-BKG-01 และ FR-BKG-03
+- ข้อสรุป: หยุดที่จุดนี้ตามข้อบังคับของ prompt ว่าเมื่อ test ใหม่ไม่ผ่านเพราะโค้ดผิด ต้องระบุว่าเป็นกรณีโค้ดทำไม่ตรง AC แล้วหยุด
